@@ -1,3 +1,4 @@
 **.workspace
 **Project Backups
-.pio/*
+.pio
+cmake**
