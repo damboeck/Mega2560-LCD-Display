@@ -429,8 +429,7 @@ void lcd_init(uint8_t dispAttr)
 
 }/* lcd_init */
 
-char get_button() {
-    char b;
+unsigned char get_button() {
 #if defined(__AVR_ATmega2560__)  // Arduino MEGA2560
     ADMUX = (1<<ADLAR)|(1<<REFS0);
     ADCSRA= (1<<ADEN)|(1<<ADSC)|(4<<ADPS0)|(1<<ADIF);
@@ -446,7 +445,7 @@ char get_button() {
 #endif
 }
 
-char parse_button(char b) {
+unsigned char parse_button(unsigned char b) {
     if (b<12) return(button_right);
     if (b<40) return(button_up);
     if (b<85) return(button_down);

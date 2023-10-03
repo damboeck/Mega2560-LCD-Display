@@ -173,11 +173,11 @@ extern void lcd_data(uint8_t data);
 /**
  * Bestimmt welcher Button am LCD-Display gedrückt wurde
  */
-char get_button();
+unsigned char get_button();
 /**
  * Bestimmt welcher Button am LCD-Display gedrückt wurde wenn button der
  * Wert vom ADC0 ist!
  */
-char parse_button(char button);
+unsigned char parse_button(unsigned char button);
 
 #endif //MEGA2560_LCD_DISPLAY_LCDARDUINO_H
