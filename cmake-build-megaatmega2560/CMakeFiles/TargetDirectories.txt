@@ -1,0 +1,5 @@
+C:/github/htl-stp-et/CLion-Arduino/Mega2560-LCD-Display/cmake-build-megaatmega2560/CMakeFiles/Production.dir
+C:/github/htl-stp-et/CLion-Arduino/Mega2560-LCD-Display/cmake-build-megaatmega2560/CMakeFiles/Debug.dir
+C:/github/htl-stp-et/CLion-Arduino/Mega2560-LCD-Display/cmake-build-megaatmega2560/CMakeFiles/Z_DUMMY_TARGET.dir
+C:/github/htl-stp-et/CLion-Arduino/Mega2560-LCD-Display/cmake-build-megaatmega2560/CMakeFiles/edit_cache.dir
+C:/github/htl-stp-et/CLion-Arduino/Mega2560-LCD-Display/cmake-build-megaatmega2560/CMakeFiles/rebuild_cache.dir
