@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <avr/io.h>
-#include <avr/pgmspace.h>
+//#include <avr/pgmspace.h>
 #include "lib/lcdarduino.h"
-#include <util/delay.h>
+// #include <util/delay.h>
 
 char s[10];
 char b;
@@ -27,7 +27,7 @@ void loop() {
         case button_left : lcd_puts("left "); break;
         case button_right: lcd_puts("right"); break;
         case button_ok   : lcd_puts("ok   "); break;
-        default          : lcd_puts("     "); break;
+        default          : lcd_puts("Hallo"); break;
     }
     //sprintf(s,"%d   ",get_button());
     //lcd_puts(s);
