@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <avr/io.h>
 //#include <avr/pgmspace.h>
-#include "lib/lcdarduino.h"
+#include <lcdarduino.h>
 #include <util/delay.h>
 
 char s[10];
@@ -13,7 +13,7 @@ void setup() {
     lcd_init(LCD_DISP_ON);
     lcd_clrscr();
     lcd_puts("Hallo Welt\n");
-    lcd_puts("Wie geht es?");
+    lcd_puts("Wie geht's?");
 
     _delay_ms(1000);
 }
