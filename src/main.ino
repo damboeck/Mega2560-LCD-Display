@@ -13,7 +13,7 @@ void setup() {
     lcd_init(LCD_DISP_ON);
     lcd_clrscr();
     lcd_puts("Hallo Welt\n");
-    lcd_puts("Wie geht es?");
+    lcd_puts("Wie gehts?");
 
     _delay_ms(1000);
 }
