@@ -17,7 +17,7 @@
  * LCD: https://www.amazon.de/AZDelivery-LCD1602-Display-HD44780-Zeichen/dp/B07DDHG93C/ref=sr_1_7_sspa?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=arduino+lcd&qid=1618291146&sr=8-7-spons&psc=1&smid=A1X7QLRQH87QA3&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzQkNZNVMwNDdQNTROJmVuY3J5cHRlZElkPUEwOTM3MDMzMkxWQ1RGWU1YVDVQQSZlbmNyeXB0ZWRBZElkPUEwNzIzMjY1MUpUSFY3QVRFRDNRWCZ3aWRnZXROYW1lPXNwX210ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=
  */
 
-#include "lcdarduino.h"
+#include "lcdbutton.h"
 
 // DELAYS
 /*#define DELAY_POWER_ON 16000

@@ -2,32 +2,40 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <avr/io.h>
-//#include <avr/pgmspace.h>
-#include "lib/lcdarduino.h"
+#include "lib/lcdbutton.h"
 #include <util/delay.h>
+
+// include the library code:
+#include <LiquidCrystal.h>
+
+// initialize the library by associating any needed LCD interface pin
+// with the arduino pin number it is connected to
+const int rs = 8, en = 9, d4 = 4, d5 = 5, d6 = 6, d7 = 7;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 char s[10];
 char b;
 
 void setup() {
-    lcd_init(LCD_DISP_ON);
-    lcd_clrscr();
-    lcd_puts("Hallo Welt\n");
-    lcd_puts("Wie gehts?");
-
+    // set up the LCD's number of columns and rows:
+    lcd.begin(16, 2);
+    // Print a message to the LCD.
+    lcd.print("Hallo Welt");
+    lcd.setCursor(0,1);
+    lcd.print("Wie geht es?");
     _delay_ms(1000);
 }
 
 void loop() {
-    lcd_home();
+    lcd.home();
     b = get_button();
     switch(b) {
-        case button_up   : lcd_puts("up   "); break;
-        case button_down : lcd_puts("down "); break;
-        case button_left : lcd_puts("left "); break;
-        case button_right: lcd_puts("right"); break;
-        case button_ok   : lcd_puts("ok   "); break;
-        default          : lcd_puts("Hallo"); break;
+        case button_up   : lcd.print("up   "); break;
+        case button_down : lcd.print("down "); break;
+        case button_left : lcd.print("left "); break;
+        case button_right: lcd.print("right"); break;
+        case button_ok   : lcd.print("ok   "); break;
+        default          : lcd.print("Hallo"); break;
     }
     //sprintf(s,"%d   ",get_button());
     //lcd_puts(s);
