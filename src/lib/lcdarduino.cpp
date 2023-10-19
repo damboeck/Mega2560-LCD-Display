@@ -19,6 +19,17 @@
 
 #include "lcdarduino.h"
 
+// DELAYS
+/*#define DELAY_POWER_ON 16000
+#define DELAY_BUSY_FLAG 4992
+#define DELAY_E_TOGGLE 64
+#define DELAY_WAIT_BUSY 2000*/
+#define DELAY_POWER_ON 16000
+#define DELAY_BUSY_FLAG 10000
+#define DELAY_E_TOGGLE 255
+#define DELAY_WAIT_BUSY 8000
+
+
 /*
 ** constants/macros
 */
@@ -165,7 +176,7 @@ static void lcd_write(uint8_t data,uint8_t rs)
 loops while lcd is busy, returns address counter
 *************************************************************************/
 static uint8_t lcd_waitbusy(void){
-    delay(2000); // Delay notwendig, da das busy-Flag nicht abgefragt werden kann !!
+    delay(DELAY_WAIT_BUSY); // Delay notwendig, da das busy-Flag nicht abgefragt werden kann !!
     return 0;
 }/* lcd_waitbusy */
 
@@ -373,7 +384,6 @@ void lcd_puts_p(const char *progmem_s)
 
 }/* lcd_puts_p */
 
-
 /*************************************************************************
 Initialize display and select type of cursor
 Input:    dispAttr LCD_DISP_OFF            display off
@@ -391,26 +401,26 @@ void lcd_init(uint8_t dispAttr)
     DDR(LCD_DATA2_PORT) |= _BV(LCD_DATA2_PIN);
     DDR(LCD_DATA3_PORT) |= _BV(LCD_DATA3_PIN);
 
-    delay(16000);        /* wait 16ms or more after power-on       */
+    delay(DELAY_POWER_ON);        /* wait 16ms or more after power-on       */
 
     /* initial write to lcd is 8bit */
     LCD_DATA1_PORT |= _BV(LCD_DATA1_PIN);  // _BV(LCD_FUNCTION)>>4;
     LCD_DATA0_PORT |= _BV(LCD_DATA0_PIN);  // _BV(LCD_FUNCTION_8BIT)>>4;
     lcd_e_toggle();
-    delay(4992);         /* delay, busy flag can't be checked here */
+    delay(DELAY_BUSY_FLAG);         /* delay, busy flag can't be checked here */
 
     /* repeat last command */
     lcd_e_toggle();
-    delay(64);           /* delay, busy flag can't be checked here */
+    delay(DELAY_E_TOGGLE);           /* delay, busy flag can't be checked here */
 
     /* repeat last command a third time */
     lcd_e_toggle();
-    delay(64);           /* delay, busy flag can't be checked here */
+    delay(DELAY_E_TOGGLE);           /* delay, busy flag can't be checked here */
 
     /* now configure for 4bit mode */
     LCD_DATA0_PORT &= ~_BV(LCD_DATA0_PIN);   // LCD_FUNCTION_4BIT_1LINE>>4
     lcd_e_toggle();
-    delay(64);           /* some displays need this additional delay */
+    delay(DELAY_E_TOGGLE);           /* some displays need this additional delay */
 
     /* from now the LCD only accepts 4 bit I/O, we can use lcd_command() */
 

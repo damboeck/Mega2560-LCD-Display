@@ -4,18 +4,18 @@
 #include <avr/io.h>
 //#include <avr/pgmspace.h>
 #include "lib/lcdarduino.h"
-// #include <util/delay.h>
+#include <util/delay.h>
 
 char s[10];
 char b;
 
 void setup() {
-    lcd_init(LCD_DISP_ON_CURSOR);
+    lcd_init(LCD_DISP_ON);
     lcd_clrscr();
     lcd_puts("Hallo Welt\n");
-    lcd_puts("Wie gehts?");
+    lcd_puts("Wie geht es?");
 
-    //_delay_ms(1000);
+    _delay_ms(1000);
 }
 
 void loop() {
